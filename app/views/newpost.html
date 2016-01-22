@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>New Post</h1>
+  <hr>
+  <form class="">
+    <fieldset>
+      <label for="title">Title</label>
+      <input type="text" ng-model="newpost.post.data.title" required name="title" value="" placeholder="Super cool stuff!">
+      <br>
+      <label for="author">Author</label>
+      <input type="text" ng-model="newpost.post.data.author" required name="author" value="" placeholder="Micky Mouse">
+      <br>
+      <label for="date">Date</label>
+      <input type="text" ng-model="newpost.post.data.created" name="date" value=""placeholder="01/01/2016">
+      <br>
+      <label for="imageURL">Image URL</label>
+      <input type="url" ng-model="newpost.post.data.thumbnail" name="imageURL" value="" placeholder="http://www.google.com/image.jpg">
+      <br>
+      <div>
+        <img class="picPreview" ng-src="{{newpost.post.data.thumbnail || newpost.defaultPic}}" alt="" />
+      </div>
+      <br>
+      <button type="submit" ng-click="newpost.savePost(newpost.post)" class="btn btn-primary">Post it!</button>
+      <button type="button" ng-click="newpost.cancelEdit()" class="btn btn-default">Cancel</button>
+
+    </fieldset>
+  </form>
+</div>
