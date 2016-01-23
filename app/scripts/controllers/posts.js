@@ -10,11 +10,13 @@
 angular.module('yoAngularApp')
   .controller('PostCtrl', function (postdata) {
     var that = this;
-    this.posts = postdata.getPosts();
 
     postdata.getReddit.then(function(data){
       console.log(data);
-      that.redditData = data;
+      console.log(postdata.newPosts);
+      var combinedPosts = data.concat(postdata.newPosts);
+      that.redditData = combinedPosts;
+
     });
 
     this.defaultSortOrder = '-data.score';
@@ -25,7 +27,7 @@ angular.module('yoAngularApp')
       },
       dateCreated: {
         name: 'Date Created',
-        sort: '-data.created'
+        sort: 'data.created'
       },
       title: {
         name: 'Title',
