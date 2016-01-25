@@ -12,9 +12,10 @@ angular.module('yoAngularApp')
     var that = this;
 
     postdata.getReddit.then(function(data){
-      console.log(data);
-      console.log(postdata.newPosts);
+      // console.log(data);
+      // console.log(postdata.newPosts);
       var combinedPosts = data.concat(postdata.newPosts);
+      console.log(combinedPosts);
       that.redditData = combinedPosts;
 
     });
@@ -27,11 +28,15 @@ angular.module('yoAngularApp')
       },
       dateCreated: {
         name: 'Date Created',
-        sort: 'data.created'
+        sort: '-data.created'
       },
       title: {
         name: 'Title',
         sort: 'data.title'
+      },
+      comments: {
+        name: '# of Comments',
+        sort: '-data.comments'
       }
     };
 
@@ -41,4 +46,12 @@ angular.module('yoAngularApp')
     this.downVotePost = function(post) {
       post.data.score--;
     };
+
+    this.submitComment = function(post, newComment) {
+      console.log(newComment);
+      var clonedNewComment = JSON.parse(JSON.stringify(newComment));
+      post.data.comments.push(clonedNewComment);
+      post.newComment = {};
+    };
+
   });

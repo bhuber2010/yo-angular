@@ -32,7 +32,26 @@
         </h4>
         <h6>{{post.data.author}}</h6>
         <h6>{{post.data.created | date:'longDate'}}</h6>
-        <p></p>
+        <uib-accordion close-others="oneAtATime">
+          <uib-accordion-group is-open="status.open">
+            <uib-accordion-heading>
+              Comments | {{post.data.comments.length}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </uib-accordion-heading>
+            <div ng-repeat="comment in post.data.comments">
+              <p>{{comment.text}}<br><small>{{comment.username}}</small></p>
+            </div>
+            <hr>
+            <form name="newPostComment">
+              <fieldset>
+                Username:
+                <input type="text" name="username" ng-model="post.newComment.username">
+                <input type="submit" ng-click="posts.submitComment(post, post.newComment)">
+              </fieldset>
+            </form>
+            <br>
+            <textarea name="comment" rows="2" cols="56" form="newPostComment" ng-model="post.newComment.text" placeholder="Comment..."></textarea>
+          </uib-accordion-group>
+        </uib-accordion>
       </div>
     </div>
   </li>

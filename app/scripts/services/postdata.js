@@ -17,6 +17,7 @@ angular.module('yoAngularApp')
         // console.log(data.data.children);
         var newData = data.data.children.map(function(curr){
           curr.data.created = curr.data.created * 1000;
+          curr.data.comments = [];
           return curr;
         });
         return newData;

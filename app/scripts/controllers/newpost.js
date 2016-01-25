@@ -14,6 +14,8 @@ angular.module('yoAngularApp')
       if (newPostForm.$valid) {
         console.log(post);
         post.data.score = 0;
+        post.data.created = new Date();
+        post.data.comments = [];
         postdata.postFakeReddit(post);
         window.location = '/#/posts';
       } else {
