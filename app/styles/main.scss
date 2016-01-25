@@ -36,6 +36,10 @@ body {
   }
 }
 
+input.ng-invalid.ng-dirty {
+  background-color: pink;
+}
+
 .picPreview {
   width: auto;
   height: 100px;

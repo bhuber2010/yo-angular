@@ -49,8 +49,7 @@ angular.module('yoAngularApp')
 
     this.submitComment = function(post, newComment) {
       console.log(newComment);
-      var clonedNewComment = JSON.parse(JSON.stringify(newComment));
-      post.data.comments.push(clonedNewComment);
+      post.data.comments.push(newComment);
       post.newComment = {};
     };
 

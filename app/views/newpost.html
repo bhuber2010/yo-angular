@@ -19,7 +19,7 @@
         <img class="picPreview" ng-src="{{newpost.post.data.thumbnail || newpost.defaultPic}}" alt="" />
       </div>
       <br>
-      <button type="submit" ng-click="newpost.savePost(newpost.post, newPostForm)" class="btn btn-primary">Post it!</button>
+      <button type="submit" ng-disabled="newPostForm.$invalid" ng-click="newpost.savePost(newpost.post, newPostForm)" class="btn btn-primary">Post it!</button>
       <button type="button" ng-click="newpost.cancelEdit()" class="btn btn-default">Cancel</button>
 
     </fieldset>
