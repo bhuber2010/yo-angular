@@ -40,6 +40,11 @@ angular
         controller: 'NewpostCtrl',
         controllerAs: 'newpost'
       })
+      .when('/omdb', {
+        templateUrl: 'views/omdb.html',
+        controller: 'OmdbCtrl',
+        controllerAs: 'omdb'
+      })
       .otherwise({
         redirectTo: '/'
       });
