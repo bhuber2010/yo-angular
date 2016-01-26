@@ -50,6 +50,11 @@ angular
         controller: 'OmdbCtrl',
         controllerAs: 'omdb'
       })
+      .when('/shopping', {
+        templateUrl: 'views/shopping.html',
+        controller: 'ShoppingCtrl',
+        controllerAs: 'shopping'
+      })
       .otherwise({
         redirectTo: '/'
       });
