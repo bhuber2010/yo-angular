@@ -8,10 +8,17 @@
  * Controller of the yoAngularApp
  */
 angular.module('yoAngularApp')
-  .controller('OmdbCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('OmdbCtrl', function (omdbSearch) {
+    var that = this;
+    this.titleSearch = function(titleSearch, movieSearchForm) {
+      if (movieSearchForm.$valid) {
+        omdbSearch.textSearch(titleSearch)
+        .get(function(data){
+          console.log(data);
+          that.searchResults = data.Search;
+        });
+      }
+    };
+
+
   });
