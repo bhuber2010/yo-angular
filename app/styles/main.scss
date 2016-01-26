@@ -48,6 +48,18 @@ input.ng-invalid.ng-dirty {
   height: 100px;
 }
 
+.movie-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img {
+    height: 78px;
+    width: auto;
+  }
+}
+
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;

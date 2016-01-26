@@ -45,6 +45,11 @@ angular
         controller: 'OmdbCtrl',
         controllerAs: 'omdb'
       })
+      .when('/omdb/:movieID', {
+        templateUrl: 'views/movie.html',
+        controller: 'OmdbCtrl',
+        controllerAs: 'omdb'
+      })
       .otherwise({
         redirectTo: '/'
       });
