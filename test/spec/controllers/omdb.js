@@ -17,7 +17,7 @@ describe('Controller: OmdbCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(OmdbCtrl.awesomeThings.length).toBe(3);
+  it('should attach titleSearch to the scope', function () {
+    expect(typeof OmdbCtrl.titleSearch).toEqual('function');
   });
 });

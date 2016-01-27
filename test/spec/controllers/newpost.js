@@ -17,7 +17,7 @@ describe('Controller: NewpostCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(NewpostCtrl.awesomeThings.length).toBe(3);
+  it('should attach a defaultPic url to the scope', function () {
+    expect(NewpostCtrl.defaultPic).toBe('http://goo.gl/L8tNf7');
   });
 });

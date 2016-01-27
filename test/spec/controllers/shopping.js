@@ -17,7 +17,7 @@ describe('Controller: ShoppingCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(ShoppingCtrl.awesomeThings.length).toBe(3);
+  it('should attach a sortorder to the scope', function () {
+    expect(typeof ShoppingCtrl.sortorder).toEqual('object');
   });
 });
