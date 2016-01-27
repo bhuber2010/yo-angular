@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngLodash'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -63,3 +64,4 @@ angular
     //   requireBase: false
     // });
   });
+  // .constant('_', window._);
