@@ -9,5 +9,11 @@
  */
 angular.module('yoAngularApp')
   .controller('ShoppingCtrl', function () {
-    this.
+    
+    this.sortorder = {
+      score: {
+        name: 'score',
+        sort: '-data.score'
+      }
+    };
   });

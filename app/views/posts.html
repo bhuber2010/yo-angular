@@ -1,66 +1,68 @@
-<h1 class="text-center header-space">Reddit hack</h1>
-<hr>
-<ul class="thumbnails">
-  <li class="">
-    <div class="row well">
-      <div class="col-sm-4">
-        <select ng-model="posts.defaultSortOrder">
-          <option ng-repeat="type in posts.sortorder" value="{{type.sort}}">{{type.name}}</option>
-        </select>
+<div class="container">
+  <h1 class="text-center header-space">Reddit hack</h1>
+  <hr>
+  <ul class="thumbnails">
+    <li class="">
+      <div class="row well">
+        <div class="col-sm-4">
+          <select ng-model="posts.defaultSortOrder">
+            <option ng-repeat="type in posts.sortorder" value="{{type.sort}}">{{type.name}}</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <input type="text" placeholder="Search" ng-model="posts.query">
+        </div>
+        <div class="col-sm-4">
+          <a ng-href="#/newpost">
+            <button type="button" class="btn btn-info">New Post</button>
+          </a>
+        </div>
       </div>
-      <div class="col-sm-4">
-        <input type="text" placeholder="Search" ng-model="posts.query">
-      </div>
-      <div class="col-sm-4">
-        <a ng-href="#/newpost">
-          <button type="button" class="btn btn-info">New Post</button>
-        </a>
-      </div>
-    </div>
-  </li>
-</ul>
-<ul class="thumbnails">
-  <li ng-repeat="post in posts.redditData | orderBy:posts.defaultSortOrder | filter:posts.query">
-    <div class="row well">
-      <div class="col-sm-3">
-        <a target="_blank" href="https://www.reddit.com{{post.data.permalink}}">
-          <img class="img-thumbnail" ng-src="{{post.data.thumbnail}}" alt="{{post.data.title}}" />
-        </a>
-      </div>
-      <div class="col-sm-9">
-        <h4 class="well-title">
+    </li>
+  </ul>
+  <ul class="thumbnails">
+    <li ng-repeat="post in posts.redditData | orderBy:posts.defaultSortOrder | filter:posts.query">
+      <div class="row well">
+        <div class="col-sm-3">
           <a target="_blank" href="https://www.reddit.com{{post.data.permalink}}">
-            {{post.data.title}}
-          </a> |
-          <div class="badge badge-inverse">
-            <div>{{post.data.score || 0}}</div>
-          </div>
-          <i class="glyphicon glyphicon-menu-up" ng-click="posts.upVotePost(post)"></i>
-          <i class="glyphicon glyphicon-menu-down" ng-click="posts.downVotePost(post)"></i>
-        </h4>
-        <h6>{{post.data.author}}</h6>
-        <h6>{{post.data.created | date:'longDate'}}</h6>
-        <uib-accordion close-others="oneAtATime">
-          <uib-accordion-group is-open="status.open">
-            <uib-accordion-heading>
-              Comments | {{post.data.comments.length}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-            </uib-accordion-heading>
-            <div ng-repeat="comment in post.data.comments">
-              <p tabindex="1">{{comment.text}}<br><small>{{comment.username}}</small></p>
+            <img class="img-thumbnail" ng-src="{{post.data.thumbnail}}" alt="{{post.data.title}}" />
+          </a>
+        </div>
+        <div class="col-sm-9">
+          <h4 class="well-title">
+            <a target="_blank" href="https://www.reddit.com{{post.data.permalink}}">
+              {{post.data.title}}
+            </a> |
+            <div class="badge badge-inverse">
+              <div>{{post.data.score || 0}}</div>
             </div>
-            <hr>
-            <form name="newPostComment">
-              <fieldset>
-                Username:
-                <input type="text" name="username" ng-model="post.newComment.username" tabindex="2">
-                <input class="btn btn-primary" type="submit" ng-click="posts.submitComment(post, post.newComment)" tabindex="4">
-              </fieldset>
-            </form>
-            <br>
-            <textarea name="comment" rows="2" cols="56" form="newPostComment" ng-model="post.newComment.text" tabindex="3" placeholder="Comment..."></textarea>
-          </uib-accordion-group>
-        </uib-accordion>
+            <i class="glyphicon glyphicon-menu-up" ng-click="posts.upVotePost(post)"></i>
+            <i class="glyphicon glyphicon-menu-down" ng-click="posts.downVotePost(post)"></i>
+          </h4>
+          <h6>{{post.data.author}}</h6>
+          <h6>{{post.data.created | date:'longDate'}}</h6>
+          <uib-accordion close-others="oneAtATime">
+            <uib-accordion-group is-open="status.open">
+              <uib-accordion-heading>
+                Comments | {{post.data.comments.length}}<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+              </uib-accordion-heading>
+              <div ng-repeat="comment in post.data.comments">
+                <p tabindex="1">{{comment.text}}<br><small>{{comment.username}}</small></p>
+              </div>
+              <hr>
+              <form name="newPostComment">
+                <fieldset>
+                  Username:
+                  <input type="text" name="username" ng-model="post.newComment.username" tabindex="2">
+                  <input class="btn btn-primary" type="submit" ng-click="posts.submitComment(post, post.newComment)" tabindex="4">
+                </fieldset>
+              </form>
+              <br>
+              <textarea name="comment" rows="2" cols="56" form="newPostComment" ng-model="post.newComment.text" tabindex="3" placeholder="Comment..."></textarea>
+            </uib-accordion-group>
+          </uib-accordion>
+        </div>
       </div>
-    </div>
-  </li>
-</ul>
+    </li>
+  </ul>
+</div>

@@ -1,1 +1,18 @@
-<p>This is the shopping view.</p>
+<div class="flex-page">
+  <div class="container-fluid">
+    <h1 class="text-center header-space">Lets Shop for Tea!</h1>
+    <hr>
+    <div class="col-lg-10 search-flex">
+      <label class="" for="cat-search">Search by catagory:</label>
+      <select ng-model="posts.defaultSortOrder" name="cat-search">
+        <option ng-repeat="type in posts.sortorder" value="{{type.sort}}">{{type.name}}</option>
+      </select>
+      <label for="search">Search by name:</label>
+      <input type="text" name="search" placeholder="Search" ng-model="posts.query">
+      <button class="btn btn-danger" type="button" name="checkout">Checkout | Bag: {{itemCount}}</button>
+    </div>
+  </div>
+  <table class="table">
+
+  </table>
+</div>

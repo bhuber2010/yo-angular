@@ -8,7 +8,7 @@
  * Controller of the yoAngularApp
  */
 angular.module('yoAngularApp')
-  .controller('OmdbCtrl', function ($location, omdbSearch) {
+  .controller('OmdbCtrl', function ($location, $routeParams, omdbSearch) {
     var that = this;
     this.hideResults = false;
     this.hideDetails = true;

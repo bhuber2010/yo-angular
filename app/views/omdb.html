@@ -9,46 +9,46 @@
       <button type="submit" ng-disabled="movieSearchForm.$invalid" ng-click="omdb.titleSearch(omdb.searchInput, movieSearchForm)" class="btn btn-primary">Search</button>
     </fieldset>
   </form>
-</div>
-<br>
-<div class="row" ng-hide="omdb.hideResults">
-  <div class="col-md-6" ng-repeat="movie in omdb.searchResults">
-    <div class="panel panel-default">
-      <div class="panel-body movie-box">
-        <a ng-click="omdb.getMovieDetails(movie.imdbID)">
-          <h4>
-            {{movie.Title}}<br>
-            <small>{{movie.Year}}</small>
-          </h4>
-        </a>
-        <img ng-src="{{movie.Poster}}" alt="" />
+  <br>
+  <div class="row" ng-hide="omdb.hideResults">
+    <div class="col-md-6" ng-repeat="movie in omdb.searchResults">
+      <div class="panel panel-default">
+        <div class="panel-body movie-box">
+          <a ng-click="omdb.getMovieDetails(movie.imdbID)">
+            <h4>
+              {{movie.Title}}<br>
+              <small>{{movie.Year}}</small>
+            </h4>
+          </a>
+          <img ng-src="{{movie.Poster}}" alt="" />
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="panel panel-default" ng-hide="omdb.hideDetails">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-12">
-        <h3>{{omdb.movieInfo.Title}}</h3>
+  <div class="panel panel-default" ng-hide="omdb.hideDetails">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>{{omdb.movieInfo.Title}}</h3>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        <img class="img-responsive" ng-src="{{omdb.movieInfo.Poster}}" alt="" />
-      </div>
-      <div class="col-md-8">
-        <p class="text-muted"><b>Staring:</b> {{omdb.movieInfo.Actors}}</p>
-        <p class="">{{omdb.movieInfo.Plot}}</p>
-        <h4>Additional Details</h4>
-        <h5>Awards</h5>
-        <p class="text-muted">{{omdb.movieInfo.Awards}}</p>
-        <h5>Country</h5>
-        <p class="text-muted">{{omdb.movieInfo.Country}}</p>
-        <h5>Director</h5>
-        <p class="text-muted">{{omdb.movieInfo.Director}}</p>
-        <h5>Genre</h5>
-        <p class="text-muted">{{omdb.movieInfo.Genre}}</p>
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-responsive" ng-src="{{omdb.movieInfo.Poster}}" alt="" />
+        </div>
+        <div class="col-md-8">
+          <p class="text-muted"><b>Staring:</b> {{omdb.movieInfo.Actors}}</p>
+          <p class="">{{omdb.movieInfo.Plot}}</p>
+          <h4>Additional Details</h4>
+          <h5>Awards</h5>
+          <p class="text-muted">{{omdb.movieInfo.Awards}}</p>
+          <h5>Country</h5>
+          <p class="text-muted">{{omdb.movieInfo.Country}}</p>
+          <h5>Director</h5>
+          <p class="text-muted">{{omdb.movieInfo.Director}}</p>
+          <h5>Genre</h5>
+          <p class="text-muted">{{omdb.movieInfo.Genre}}</p>
+        </div>
       </div>
     </div>
   </div>
