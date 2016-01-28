@@ -136,13 +136,27 @@ angular.module('yoAngularApp')
 
     var cats = teas.map(function(aTea){
       aTea.price = aTea.price / 100;
+      aTea.quantity = 1;
       return aTea.categories;
     });
     var uniqCats = lodash(cats).flatten().uniq().value();
 
+    var bag = [];
+
+    var bagTotal = bag.map(function(item){
+      var total = 0;
+      total += item.price;
+      console.log(total);
+      return total;
+    });
 
     return {
       teas: teas,
-      cats: uniqCats
+      cats: uniqCats,
+      bag: bag,
+      bagTotal: bagTotal,
+      addToBag: function(item){
+        bag.push(item);
+      }
     };
   });

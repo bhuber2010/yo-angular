@@ -2,7 +2,7 @@
   <h1 class="text-center">Reddit hack</h1>
   <hr>
   <ul class="thumbnails">
-    <li class="">
+    <li class="none-li">
       <div class="row well">
         <div class="col-sm-4">
           <select ng-model="posts.defaultSortOrder">
@@ -21,7 +21,7 @@
     </li>
   </ul>
   <ul class="thumbnails">
-    <li ng-repeat="post in posts.redditData | orderBy:posts.defaultSortOrder | filter:posts.query">
+    <li class="none-li" ng-repeat="post in posts.redditData | orderBy:posts.defaultSortOrder | filter:posts.query">
       <div class="row well">
         <div class="col-sm-3">
           <a target="_blank" href="https://www.reddit.com{{post.data.permalink}}">

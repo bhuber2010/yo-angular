@@ -20,7 +20,7 @@
           <option ng-repeat="type in shopping.sortorder" value="{{type.sort}}">{{type.name}}</option>
         </select>
       </div>
-      <button class="btn btn-danger" type="button" name="checkout">Checkout | Bag: {{itemCount}}</button>
+      <button class="btn btn-danger" type="button" name="checkout" ng-click="shopping.checkout()">Checkout | Bag: {{shopping.bagItemCount}}</button>
     </div>
   </div>
   <table class="table">
@@ -39,10 +39,10 @@
             <div class="">
               <h3>
                 Quantity:
-                <select name="quantity" ng-model="shopping.defaultQuantity">
+                <select name="quantity" ng-model="tea.quantity">
                   <option ng-repeat="num in shopping.quantity" value="{{num}}">{{num}}</option>
                 </select>
-                <button class="btn btn-warning" type="button" name="add-to-bag">Add to Bag</button>
+                <button class="btn btn-warning" type="button" name="add-to-bag" ng-click="shopping.addToBag(tea)">Add to Bag</button>
               </h3>
             </div>
           </div>

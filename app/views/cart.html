@@ -1,0 +1,49 @@
+<div class="flex-page header-space">
+  <div class="OnePcWd">
+    <h1 class="text-center">Your Tea Cart!</h1>
+    <hr>
+    <div class="search-flex">
+      <h3>Your Tea Cart</h3>
+      <button class="btn btn-primary" type="button" name="shopping" ng-click="cart.backToShopping()">Back to Tea's</button>
+      <h3>Order total: {{cart.bagTotal | currency:"$":2}}</h3>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tea</th>
+        <th>Information</th>
+        <th>Quantity</th>
+        <th>Sub-total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="tea in cart.bag track by $index">
+        <td><img ng-src="{{tea.imageUrl}}" alt="" /></td>
+        <td>
+          <h3>{{tea.name}}</h3>
+          <p><b>Price:</b> {{tea.price | currency:"$":2}}</p>
+          <p><b>Caffeine Scale:</b> {{tea.caffeineScale}}</p>
+          <p><b>Ingredients:</b> {{tea.ingredients}}</p>
+          <p><b>Rating:</b> {{tea.rating}}</p>
+          <p><b>Categories:</b>
+            <ul>
+              <li ng-repeat="cat in tea.categories">{{cat}}</li>
+            </ul>
+          </p>
+        </td>
+        <td>
+          <p>{{tea.quantity}}</p>
+        </td>
+        <td>
+          <p>{{tea.quantity * tea.price | currency:"$":2}}</p>
+        </td>
+        <td>
+          <button class="btn btn-warning" type="button" name="edit">Edit</button>
+          <button class="btn btn-danger" type="button" name="remove">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
