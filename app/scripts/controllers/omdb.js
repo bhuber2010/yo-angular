@@ -11,10 +11,8 @@ angular.module('yoAngularApp')
   .controller('OmdbCtrl', function ($location, $routeParams, omdbSearch) {
     var that = this;
     this.hideResults = false;
-    this.hideDetails = true;
     this.titleSearch = function(titleSearch, movieSearchForm) {
       that.hideResults = false;
-      that.hideDetails = true;
       if (movieSearchForm.$valid) {
         omdbSearch.textSearch(titleSearch)
         .get(function(data){
@@ -28,6 +26,7 @@ angular.module('yoAngularApp')
           console.log(newData);
           that.searchResults = newData;
         });
+        that.searchInput = '';
       }
     };
     this.getMovieDetails = function(imdbID) {
@@ -42,8 +41,10 @@ angular.module('yoAngularApp')
         // $location.path('/omdb/' + imdbID);
         console.log(that);
         that.hideResults = true;
-        that.hideDetails = false;
       });
+    };
+    this.backToResults = function(){
+      that.hideResults = false;
     };
 
   });
