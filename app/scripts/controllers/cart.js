@@ -21,6 +21,7 @@ angular.module('yoAngularApp')
 
     this.removeItem = function(tea){
       teaData.removeItem(tea._id);
+      that.bagTotal = teaData.bagTotal();
     };
     this.editItem = function(){
       that.toggleQty = true;
