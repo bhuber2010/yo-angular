@@ -1,9 +1,9 @@
 <div class="flex-page header-space">
   <div class="OnePcWd">
-    <h1 class="text-center">Your Tea Cart!</h1>
+    <h1 class="text-center">Tea Cart!</h1>
     <hr>
     <div class="search-flex">
-      <h3>Your Tea Cart</h3>
+      <h3>Your picks:</h3>
       <button class="btn btn-primary" type="button" name="shopping" ng-click="cart.backToShopping()">Back to Tea's</button>
       <h3>Order total: {{cart.bagTotal | currency:"$":2}}</h3>
     </div>
@@ -13,6 +13,7 @@
       <tr>
         <th>Tea</th>
         <th>Information</th>
+        <th>Unit Price</th>
         <th>Quantity</th>
         <th>Sub-total</th>
         <th></th>
@@ -23,7 +24,6 @@
         <td><img ng-src="{{tea.imageUrl}}" alt="" /></td>
         <td>
           <h3>{{tea.name}}</h3>
-          <p><b>Price:</b> {{tea.price | currency:"$":2}}</p>
           <p><b>Caffeine Scale:</b> {{tea.caffeineScale}}</p>
           <p><b>Ingredients:</b> {{tea.ingredients}}</p>
           <p><b>Rating:</b> {{tea.rating}}</p>
@@ -34,14 +34,19 @@
           </p>
         </td>
         <td>
-          <p>{{tea.quantity}}</p>
+          <p>{{tea.price | currency:"$":2}}</p>
+        </td>
+        <td>
+          <p ng-hide="cart.toggleQty" >{{tea.quantity}}</p>
+          <input ng-show="cart.toggleQty" ng-model="tea.quantity" type="text" name="qty">
         </td>
         <td>
           <p>{{tea.quantity * tea.price | currency:"$":2}}</p>
         </td>
         <td>
-          <button class="btn btn-warning" type="button" name="edit">Edit</button>
-          <button class="btn btn-danger" type="button" name="remove">Delete</button>
+          <button class="btn btn-warning" type="button" name="edit" ng-click="cart.editItem(tea)" ng-hide="cart.toggleQty">Edit</button>
+          <button class="btn btn-success" type="button" name="update" ng-click="cart.updateItemQty(tea)" ng-show="cart.toggleQty">Update</button>
+          <button class="btn btn-danger" type="button" name="remove" ng-click="cart.removeItem(tea)">Delete</button>
         </td>
       </tr>
     </tbody>

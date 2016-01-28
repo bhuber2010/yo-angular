@@ -143,12 +143,14 @@ angular.module('yoAngularApp')
 
     var bag = [];
 
-    var bagTotal = bag.map(function(item){
+    var bagTotal = function(){
       var total = 0;
-      total += item.price;
+      bag.forEach(function(item){
+        total += (item.price * item.quantity);
+      });
       console.log(total);
       return total;
-    });
+    };
 
     return {
       teas: teas,
@@ -157,6 +159,20 @@ angular.module('yoAngularApp')
       bagTotal: bagTotal,
       addToBag: function(item){
         bag.push(item);
+        console.log(bag);
+      },
+      removeItem: function(teaID){
+        lodash.remove(bag, function(tea){
+          return tea._id === teaID;
+        });
+      },
+      updateItemQty: function(teaUpdate){
+        var updateTea = lodash.remove(bag, function(tea){
+          return tea._id === teaUpdate._id;
+        });
+        updateTea[0].quantity = parseInt(updateTea[0].quantity);
+        bag.push(updateTea[0]);
+        console.log(updateTea);
       }
     };
   });

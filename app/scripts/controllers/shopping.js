@@ -37,6 +37,7 @@ angular.module('yoAngularApp')
     this.bagItemCount = teaData.bag.length;
 
     this.addToBag = function(tea){
+      console.log(tea);
       tea.quantity = parseInt(tea.quantity);
       teaData.addToBag(tea);
       that.bagItemCount = teaData.bag.length;
