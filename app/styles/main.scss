@@ -116,6 +116,14 @@ li {
   list-style-type: none;
 }
 
+.qty-input {
+  max-width: 40px;
+}
+
+.bag-buttons {
+  min-width: 160px;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {

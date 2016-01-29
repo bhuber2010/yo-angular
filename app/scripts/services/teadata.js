@@ -158,7 +158,15 @@ angular.module('yoAngularApp')
       bag: bag,
       bagTotal: bagTotal,
       addToBag: function(item){
-        bag.push(item);
+        var inBag = lodash.findIndex(bag, function(tea){
+          return tea._id === item._id;
+        });
+        if (inBag >= 0) {
+          bag[inBag].quantity += item.quantity;
+        } else {
+          var newItem = lodash.clone(item);
+          bag.push(newItem);
+        }
         console.log(bag);
       },
       removeItem: function(teaID){
@@ -167,12 +175,11 @@ angular.module('yoAngularApp')
         });
       },
       updateItemQty: function(teaUpdate){
-        var updateTea = lodash.remove(bag, function(tea){
+        var teaIndex = lodash.findIndex(bag, function(tea){
           return tea._id === teaUpdate._id;
         });
-        updateTea[0].quantity = parseInt(updateTea[0].quantity);
-        bag.push(updateTea[0]);
-        console.log(updateTea);
+        bag[teaIndex].quantity = parseInt(teaUpdate.quantity);
+        console.log(teaUpdate.quantity);
       }
     };
   });

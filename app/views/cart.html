@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="tea in cart.bag track by $index">
+      <tr ng-repeat="tea in cart.bag">
         <td><img ng-src="{{tea.imageUrl}}" alt="" /></td>
         <td>
           <h3>{{tea.name}}</h3>
@@ -37,15 +37,15 @@
           <p>{{tea.price | currency:"$":2}}</p>
         </td>
         <td>
-          <p ng-hide="cart.toggleQty" >{{tea.quantity}}</p>
-          <input ng-show="cart.toggleQty" ng-model="tea.quantity" type="text" name="qty">
+          <p ng-hide="tea.toggleQty" >{{tea.quantity}}</p>
+          <input class="qty-input" ng-show="tea.toggleQty" ng-model="tea.quantity" type="text" name="qty">
         </td>
         <td>
           <p>{{tea.quantity * tea.price | currency:"$":2}}</p>
         </td>
-        <td>
-          <button class="btn btn-warning" type="button" name="edit" ng-click="cart.editItem(tea)" ng-hide="cart.toggleQty">Edit</button>
-          <button class="btn btn-success" type="button" name="update" ng-click="cart.updateItemQty(tea)" ng-show="cart.toggleQty">Update</button>
+        <td class="bag-buttons">
+          <button class="btn btn-warning" type="button" name="edit" ng-click="cart.editItem(tea)" ng-hide="tea.toggleQty">Edit</button>
+          <button class="btn btn-success" type="button" name="update" ng-click="cart.updateItemQty(tea)" ng-show="tea.toggleQty">Update</button>
           <button class="btn btn-danger" type="button" name="remove" ng-click="cart.removeItem(tea)">Delete</button>
         </td>
       </tr>

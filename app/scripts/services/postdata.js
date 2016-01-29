@@ -12,8 +12,8 @@ angular.module('yoAngularApp')
     // Service logic
     var redditPostPromise = $resource('https://www.reddit.com/r/funny.json').get();
 
-    var RedditPromise = redditPostPromise.$promise.then(
-      function(data) {
+    var RedditPromise = redditPostPromise.$promise
+      .then(function(data) {
         // console.log(data.data.children);
         var newData = data.data.children.map(function(curr){
           curr.data.created = curr.data.created * 1000;

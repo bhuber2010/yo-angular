@@ -23,12 +23,12 @@ angular.module('yoAngularApp')
       teaData.removeItem(tea._id);
       that.bagTotal = teaData.bagTotal();
     };
-    this.editItem = function(){
-      that.toggleQty = true;
+    this.editItem = function(tea){
+      tea.toggleQty = true;
     };
     this.updateItemQty = function(teaUpdate){
       teaData.updateItemQty(teaUpdate);
-      that.toggleQty = false;
+      teaUpdate.toggleQty = false;
       that.bagTotal = teaData.bagTotal();
     };
   });
