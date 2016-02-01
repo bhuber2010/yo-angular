@@ -11,11 +11,11 @@ angular.module('yoAngularApp')
   .factory('omdbSearch', function ($resource) {
     // Service logic
     var search = function(movieSearch) {
-      return $resource('http://www.omdbapi.com/?s=' + movieSearch, {'get': {method:'GET'}});
+      return $resource('https://www.omdbapi.com/?s=' + movieSearch, {'get': {method:'GET'}});
     };
 
     var movie = function(movieID) {
-      return $resource('http://www.omdbapi.com/?i=' + movieID, {'get': {method:'GET'}});
+      return $resource('https://www.omdbapi.com/?i=' + movieID, {'get': {method:'GET'}});
     };
     // Public API here
     return {

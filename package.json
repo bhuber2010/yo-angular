@@ -40,7 +40,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "start": "grunt"
+    "start": "grunt",
     "test": "grunt test"
   }
 }
