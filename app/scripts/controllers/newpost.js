@@ -23,6 +23,6 @@ angular.module('yoAngularApp')
       }
     };
     this.cancelEdit = function() {
-      window.location = '/app-explosion/#/posts';
+      window.location = '/#/posts';
     };
   });
