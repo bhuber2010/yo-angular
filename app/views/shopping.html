@@ -5,7 +5,7 @@
     <div class="col-lg-10 search-flex well">
       <div class="">
         <label class="" for="cat-search">Filter by catagory:</label>
-        <select name="cat-search" ng-model="shopping.allCat.categories">
+        <select name="cat-search" ng-model="shopping.allCat">
           <option value="">All</option>
           <option ng-repeat="cat in shopping.catFilter" value="{{cat}}">{{cat}}</option>
         </select>

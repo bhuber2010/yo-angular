@@ -167,9 +167,20 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/{,*/}*',
             '!<%= yeoman.dist %>/.git{,*/}*'
           ]
-        }]
+        }],
+        options: {
+          force: true
+        }
       },
-      server: '.tmp'
+      server: {
+        files: [{
+          dot: true,
+          src: ['.tmp']
+        }],
+        options: {
+          force: true
+        }
+      }
     },
 
     // Add vendor prefixed styles
