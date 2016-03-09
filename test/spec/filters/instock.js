@@ -11,9 +11,14 @@ describe('Filter: inStock', function () {
     inStock = $filter('inStock');
   }));
 
-  it('should return the input prefixed with "inStock filter:"', function () {
-    var text = 'angularjs';
-    expect(inStock(text)).toBe('inStock filter: ' + text);
+  it("should return 'Yes' for 'true'", function () {
+    var text = true;
+    expect(inStock(text)).toBe('Yes');
+  });
+
+  it("should return 'No' for 'false'", function () {
+    var text = false;
+    expect(inStock(text)).toBe('No');
   });
 
 });

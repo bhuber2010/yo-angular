@@ -20,4 +20,7 @@ describe('Controller: ShoppingCtrl', function () {
   it('should attach a sortorder to the scope', function () {
     expect(typeof ShoppingCtrl.sortorder).toEqual('object');
   });
+  it('should attach addToBag to the scope', function () {
+    expect(typeof ShoppingCtrl.addToBag).toEqual('function');
+  });
 });
