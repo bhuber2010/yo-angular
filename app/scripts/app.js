@@ -61,6 +61,11 @@ angular
         controller: 'CartCtrl',
         controllerAs: 'cart'
       })
+      .when('/eFill', {
+        templateUrl: 'views/efill.html',
+        controller: 'EfillCtrl',
+        controllerAs: 'eFill'
+      })
       .otherwise({
         redirectTo: '/'
       });

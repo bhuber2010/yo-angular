@@ -1,0 +1,15 @@
+<div class="container header-space">
+  <h1 class="text-center">eFill</h1>
+  <hr>
+  <form name="eFillSearchForm">
+    <fieldset class="text-center">
+      <label class="" for="search">Enter an Address</label>
+      <br>
+      <input type="text" required ng-model="eFill.searchInput" name="search" value="" placeholder="Address">
+      <button type="submit" ng-disabled="eFillSearchForm.$invalid" ng-click="eFill.search(eFill.searchInput, eFillSearchForm)" class="btn btn-primary">Search</button>
+    </fieldset>
+  </form>
+  <div class="well">
+    <p>{{eFill.chargers | json}}</p>
+  </div>
+</div>
